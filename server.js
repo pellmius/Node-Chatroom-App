@@ -1,11 +1,13 @@
 // Requirements
 const express = require('express');
 const io = require('socket.io');
-const dotenv = require('./config_env')
+
+require('dotenv').config()
 
 // Environment Variables and App Configurations
 
 const PORT = process.env.PORT || 8000;
+console.log(PORT)
 const app = express();
 
 
@@ -13,6 +15,8 @@ const app = express();
 
 
 app.listen(PORT, (err) => {
-    if (err) throw err;
+    if (err){
+        console.log(err)
+    }
     console.log(`App running at localhost:${PORT}`)
 })
