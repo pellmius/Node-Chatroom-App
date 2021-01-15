@@ -1,10 +1,10 @@
 {
-  "name": "Node-Chatroom-App",
+  "name": "node_chatroom-app",
   "version": "1.0.0",
   "description": "Chatroom App using Node and Express",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server"
   },
   "repository": {
     "type": "git",
