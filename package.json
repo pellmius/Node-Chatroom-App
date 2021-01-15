@@ -1,0 +1,20 @@
+{
+  "name": "Node-Chatroom-App",
+  "version": "1.0.0",
+  "description": "Chatroom App using Node and Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pellmius/Node-Chatroom-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pellmius/Node-Chatroom-App/issues"
+  },
+  "homepage": "https://github.com/pellmius/Node-Chatroom-App#readme"
+}
