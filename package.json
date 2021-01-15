@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/pellmius/Node-Chatroom-App/issues"
   },
-  "homepage": "https://github.com/pellmius/Node-Chatroom-App#readme"
+  "homepage": "https://github.com/pellmius/Node-Chatroom-App#readme",
+  "dependencies": {
+    "socket.io": "^3.1.0"
+  }
 }
