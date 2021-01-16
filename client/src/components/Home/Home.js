@@ -2,7 +2,6 @@ import {Component} from 'react';
 import {instance as api} from '../../api/index.js';
 import './Home.css'
 import { io } from 'socket.io-client';
-let socket = io('http://localhost');
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +9,7 @@ class Home extends Component {
         this.change = this.change.bind(this);
     }
     componentDidMount() {
-        api.get('/')
+        api.get('/rooms')
         .then( (response) => {
             const nameArray = response.data.map((room) => {
                 return room.name;
@@ -25,7 +24,6 @@ class Home extends Component {
     }
     render() {
 
-        socket.emit('a','aaa')
         return(
             <div className='container'>
             <h1 className='app-name-h1'>The Hidden Chat</h1>
@@ -36,6 +34,8 @@ class Home extends Component {
                     return <option key = {index} className='room-option' value={roomName}>{roomName.charAt(0).toUpperCase() + roomName.slice(1)}</option>
                 })}
             </select>
+            <br/>
+            <button className='connect-btn'>Connect</button>
             </div>
         )
     }

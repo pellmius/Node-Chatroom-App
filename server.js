@@ -32,6 +32,9 @@ app.use('/api',apiRoute);
 
 io.on('connection', socket => {
     console.log("New Socket Connection!")
+    socket.on('disconnect', () => {
+        console.log('A user disconnected.')
+    })
 })
 server.listen(PORT, (err) => {
     if (err){

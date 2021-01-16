@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const room = require('../db/models/room');
 
-router.get('/', async (req,res) => {
+router.get('/rooms', async (req,res) => {
     try{
         const roomList = await room.find({});
         res.json(roomList);
