@@ -1,0 +1,19 @@
+.container {
+    text-align: center;
+}
+
+
+.label-text {
+    font-size: 28px;
+}
+.select-room {
+    background-color: grey;
+    color: white;
+    border: 12px solid transparent;
+    width: 200px;
+    height: 50px;
+}
+.select-room option {
+    background-color: #eee;
+    color: black;
+}
