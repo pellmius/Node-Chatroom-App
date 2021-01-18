@@ -1,10 +1,27 @@
 import React, {Component} from 'react';
 import './Room.css'
+import { io } from 'socket.io-client';
+let socket = io(':80');
 
 class Room extends Component {
-    
+    constructor() {
+        super();
+        this.state = {text:''};
+        this.changeText = this.changeText.bind(this);
+        this.sendMessage = this.sendMessage.bind(this);
+
+
+    }
+
+    changeText(event) {
+        this.setState({text:event.target.value});
+    }
+
+    sendMessage() {
+        socket.emit('chat message', this.state.text)
+    }
+
     render() {
-        console.log(this.props.match)
         return(
                 <div className='chat-container'>
                     <div className = 'room-name-container'>
@@ -15,9 +32,9 @@ class Room extends Component {
                     <div className = 'sidebar-container'>
                     </div>
                     <div className='type-container'>
-                        <textarea/>
+                        <textarea onChange = {this.changeText}/>
 
-                        <button className = 'send-message-btn'>Send</button>
+                        <button onClick = {this.sendMessage} className = 'send-message-btn'>Send</button>
                     </div>
                 </div>
         )

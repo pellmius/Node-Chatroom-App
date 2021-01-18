@@ -48,3 +48,14 @@ body {
     transition: .15s linear;
 
 }
+
+.name-input {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    color: grey;
+}
+.name-input:focus {
+    outline: none;
+}
