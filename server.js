@@ -4,7 +4,8 @@ const http = require('http');
 const socketio = require('socket.io');
 const dotenv = require('dotenv');
 const db = require('./db/connection');
-const apiRoute = require('./routes/api')
+const apiRoute = require('./routes/api');
+const path = require('path');
 
 // Environment Variables and App Configurations
 dotenv.config();
@@ -12,21 +13,17 @@ db();
 const PORT = process.env.PORT || 8000;
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server, {
-    cors: {
-        origin: "http://localhost:3000",
-        methods: ["GET", "POST"]
-    }
-});
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+const io = socketio(server, {});
 
 //Routes
 app.use('/api',apiRoute);
 //
+app.use(express.static(path.join(__dirname, 'client/build')));
+    
+  // Handle React routing, return all requests to React app
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
 
 // Misc (Temp)
 
@@ -46,7 +43,7 @@ io.on('connection', socket => {
 
 
     socket.on('disconnecting', reason => {
-        
+
     })
 })
 server.listen(PORT, (err) => {
