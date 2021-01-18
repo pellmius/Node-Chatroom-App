@@ -11,7 +11,13 @@ class Home extends Component {
         this.changeName = this.changeName.bind(this);
         this.redirect = this.redirect.bind(this);
     }
+
+    genRandomName() {
+        let randomNumber = Math.floor(Math.random() * (9999-1+1) + 1);
+        return "Guest" + randomNumber;
+    }
     componentDidMount() {
+
         api.get('/rooms')
         .then( (response) => {
             const nameArray = response.data.map((room) => {
@@ -20,7 +26,7 @@ class Home extends Component {
             this.setState({roomList: nameArray})
 
         })
-        
+        this.setState({name:this.genRandomName()})
     }
     change(event) {
         this.setState({selectedRoom:event.target.value})
@@ -36,7 +42,7 @@ class Home extends Component {
         if(this.state.redirect) {
             return <Redirect push to={{
                 pathname:this.state.redirect,
-                state: {name: this.state.name}
+                state: {guestName: this.state.name}
             }} />
         }
         return(

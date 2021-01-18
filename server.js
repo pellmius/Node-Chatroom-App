@@ -32,11 +32,21 @@ app.use('/api',apiRoute);
 
 io.on('connection', socket => {
     console.log("New Socket Connection!")
-    socket.on('chat message', msg => {
-        console.log(msg);
+    socket.on('join', room => {
+        
+        socket.join(room.roomname);
+        console.log(socket.rooms, socket.id, socket.rooms.size, room.user);
+        socket.broadcast.to(room.roomname).emit('message', {txt: `${room.user} has joined`, sender:"HiddenBot"})
     })
-    socket.on('disconnect', () => {
-        console.log('A user disconnected.')
+    
+    socket.on('message', msg => {
+        socket.broadcast.to(msg.roomname).emit('message', {txt: msg.txt, sender: msg.user})
+    })
+    
+
+
+    socket.on('disconnecting', reason => {
+        
     })
 })
 server.listen(PORT, (err) => {

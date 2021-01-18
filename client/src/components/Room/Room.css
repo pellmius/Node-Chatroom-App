@@ -66,3 +66,13 @@
     border: 2px solid black;
     z-index: 1;
 }
+
+
+.message-own {
+    background-color: #8638df;
+    color: rgb(167, 167, 167);
+    width: 200px;
+    height: 100px;
+    margin-left: 610px;
+    margin-top: 10px;
+}
