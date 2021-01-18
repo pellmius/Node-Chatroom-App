@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Room.css'
 import { io } from 'socket.io-client';
-let socket = io(':80');
+let socket = io('https://node-chat-guest.herokuapp.com/');
 
 class Room extends Component {
     constructor() {
