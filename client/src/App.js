@@ -5,7 +5,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path='/'><Home /></Route>
+        <Route exact path='/a'><Home /></Route>
         <Route path ='/room/:roomname' component = {Room}></Route>
       </Switch>
     </Router>

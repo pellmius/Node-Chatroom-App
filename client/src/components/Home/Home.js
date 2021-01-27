@@ -57,7 +57,7 @@ class Home extends Component {
             </select>
             <br/>
             <br/>
-            <input onChange={this.changeName} placeholder='Type your username' type='text' className='name-input'></input>
+            <input onChange={this.changeName} placeholder='Type your usaaaernccame' type='text' className='name-input'></input>
             <br/>
             <button onClick={this.redirect} className='connect-btn'>Connect</button>
             </div>
